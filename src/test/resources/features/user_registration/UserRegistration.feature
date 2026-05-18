@@ -1,4 +1,4 @@
-﻿# language: es
+# language: es
 @UserRegistration @HighCohesion
 Característica: Registro de Nuevos Usuarios en la Plataforma
   Como usuario de la tienda en línea
@@ -13,6 +13,8 @@ Característica: Registro de Nuevos Usuarios en la Plataforma
     Entonces el sistema debería validar la creación exitosa del perfil en la plataforma
 
     Ejemplos:
-      | nombre | apellido | direccion |
-      | juan   | correa   | calle     |
-      | pedro  | ortiz    | carr      |
+      | nombre           | apellido        | direccion          |
+      | José Alfredo     | Martínez Valdés | Carrera 43 # 46-40 |
+      | Nathalia Andrea  | Martínez Ijají  | Carrera 23 # 31-06 |
+      | Valeria          | Méndez Escobar  | Calle 30 # 24-18    |
+      | Juan Sebastián   | Martínez Ijají  | Carrera 28 # 35-12 |
