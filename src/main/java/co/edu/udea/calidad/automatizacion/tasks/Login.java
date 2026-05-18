@@ -23,11 +23,11 @@ public class Login implements Task {
     }
 
     public static Task openLoginPage() {
-        return Task.where("{0} abre la página de login",
+        return Task.where("{0} abre la pÃƒÂ¡gina de login",
                 Open.url("https://advantageonlineshopping.com/"));
     }
 
-    /** Fábrica para login con credenciales */
+    /** FÃƒÂ¡brica para login con credenciales */
     public static Login withCredentials(String username, String password){
         return Instrumented.instanceOf(Login.class)
                 .withProperties(new User(username, password));
@@ -40,7 +40,7 @@ public class Login implements Task {
                 WaitUntil.the(HomePage.USER_ICON, isClickable()).forNoMoreThan(10).seconds(),
                 ClickElement.element(HomePage.USER_ICON),
 
-                // Esperar que los campos estén visibles y llenarlos
+                // Esperar que los campos estÃƒÂ©n visibles y llenarlos
                 WaitUntil.the(LoginPage.USERNAME, isVisible()).forNoMoreThan(10).seconds(),
                 EnterText.into(LoginPage.USERNAME, user.username()),
 

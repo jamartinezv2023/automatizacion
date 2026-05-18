@@ -1,54 +1,27 @@
 package co.edu.udea.calidad.automatizacion.questions;
 
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.questions.Text;
-import co.edu.udea.calidad.automatizacion.userinterfaces.HomePage;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
-public class LoginMessage implements Question<String> {
+import static co.edu.udea.calidad.automatizacion.userinterfaces.HomePage.USERNAME_LABEL;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-    @Override
-    public String answeredBy(Actor actor) {
-        try {
-            return Text.of(HomePage.HOME_TITLE)
+public class LoginMessage {
+
+    public static Question<String> displayed() {
+
+        return actor -> {
+
+            actor.attemptsTo(
+                    WaitUntil.the(USERNAME_LABEL, isVisible())
+                            .forNoMoreThan(20)
+                            .seconds()
+            );
+
+            return Text.of(USERNAME_LABEL)
                     .answeredBy(actor)
                     .trim();
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    public static LoginMessage value() {
-        return new LoginMessage();
-    }
-
-    // =====================================================
-    // ✔ MÉTODO PARA MENSAJE DE LOGIN EXITOSO
-    // =====================================================
-    public static Question<String> success() {
-        return actor -> {
-            try {
-                return Text.of(HomePage.HOME_TITLE)
-                        .answeredBy(actor)
-                        .trim();
-            } catch (Exception e) {
-                return "";
-            }
-        };
-    }
-
-    // =====================================================
-    // ✔ MÉTODO PARA MENSAJE DE LOGIN FALLIDO
-    // =====================================================
-    public static Question<String> error() {
-        return actor -> {
-            try {
-                return Text.of(HomePage.ERROR_MESSAGE)
-                        .answeredBy(actor)
-                        .trim();
-            } catch (Exception e) {
-                return "";
-            }
         };
     }
 }

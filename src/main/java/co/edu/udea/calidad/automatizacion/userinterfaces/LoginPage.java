@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 
 public class LoginPage {
 
-    public static final Target LOGIN_ICON = Target.the("ícono de login")
+    public static final Target LOGIN_ICON = Target.the("ÃƒÂ­cono de login")
             .located(By.id("menuUser"));
 
-    public static final Target LOGIN_BUTTON = Target.the("botón login")
+    public static final Target LOGIN_BUTTON = Target.the("botÃƒÂ³n login")
             .located(By.id("sign_in_btn"));
 
     /** Mensaje de error si las credenciales son incorrectas */

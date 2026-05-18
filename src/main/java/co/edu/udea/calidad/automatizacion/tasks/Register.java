@@ -23,9 +23,9 @@ public class Register implements Task {
         this.user = user;
     }
 
-    /** Abrir página principal */
+    /** Abrir pÃƒÂ¡gina principal */
     public static Task openHomePage() {
-        return Task.where("{0} abre la página principal",
+        return Task.where("{0} abre la pÃƒÂ¡gina principal",
                 Open.url("https://advantageonlineshopping.com/"));
     }
 
@@ -63,13 +63,13 @@ public class Register implements Task {
                 WaitUntil.the(RegistrationPage.REGISTER_BUTTON, isClickable()).forNoMoreThan(10).seconds(),
                 ClickElement.element(RegistrationPage.REGISTER_BUTTON),
 
-                // Esperar que aparezca algún mensaje (éxito o error)
+                // Esperar que aparezca algÃƒÂºn mensaje (ÃƒÂ©xito o error)
                 WaitUntil.the(RegistrationPage.SUCCESS_MESSAGE, isVisible()).forNoMoreThan(15).seconds()
         );
     }
 
 
-    /** Fábrica oficial de Screenplay */
+    /** FÃƒÂ¡brica oficial de Screenplay */
     public static Register with(User user) {
         return Instrumented.instanceOf(Register.class).withProperties(user);
     }

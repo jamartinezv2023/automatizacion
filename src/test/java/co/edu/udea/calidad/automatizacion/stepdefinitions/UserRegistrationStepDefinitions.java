@@ -9,26 +9,26 @@ import java.util.Map;
 
 public class UserRegistrationStepDefinitions {
 
-    @Dado("^que el usuario abre la página de inicio de la tienda$")
+    @Dado("^que el usuario abre la pÃƒÂ¡gina de inicio de la tienda$")
     public void queElUsuarioAbreLaPaginaDeInicioDeLaTienda() {
         // Mantiene la funcionalidad nativa de apertura de URL mapeada
     }
 
-    @Cuando("^interactúa con el formulario ingresando los datos correspondientes$")
+    @Cuando("^interactÃƒÂºa con el formulario ingresando los datos correspondientes$")
     public void interactuaConElFormularioIngresandoLosDatosCorrespondientes(DataTable dataTable) {
-        // Implementación estricta de io.DataTable mapeada al contexto de SQA
+        // ImplementaciÃƒÂ³n estricta de io.DataTable mapeada al contexto de SQA
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
         for (Map<String, String> columns : rows) {
             String nombre = columns.get("nombre");
             String apellido = columns.get("apellido");
             String direccion = columns.get("direccion");
             
-            // Los datos se procesan limpiamente a través de las capas aquí
+            // Los datos se procesan limpiamente a travÃƒÂ©s de las capas aquÃƒÂ­
         }
     }
 
-    @Entonces("^el sistema debería validar la creación exitosa del perfil en la plataforma$")
+    @Entonces("^el sistema deberÃƒÂ­a validar la creaciÃƒÂ³n exitosa del perfil en la plataforma$")
     public void elSistemaDeberiaValidarLaCreacionExitosaDelPerfilEnLaPlataforma() {
-        // Mantiene la validación existente en Screenplay
+        // Mantiene la validaciÃƒÂ³n existente en Screenplay
     }
 }
