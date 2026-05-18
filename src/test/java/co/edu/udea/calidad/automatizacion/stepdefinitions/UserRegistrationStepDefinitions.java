@@ -1,4 +1,4 @@
-﻿package co.edu.udea.calidad.automatizacion.stepdefinitions;
+package co.edu.udea.calidad.automatizacion.stepdefinitions;
 
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Cuando;
