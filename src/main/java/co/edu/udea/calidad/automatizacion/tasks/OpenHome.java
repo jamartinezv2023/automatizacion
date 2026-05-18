@@ -13,12 +13,12 @@ public class OpenHome implements Task {
         this.url = url;
     }
 
-    /** Abrir la URL especÃƒÂ­fica */
+    /** Abrir la URL especÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­fica */
     public static OpenHome url(String url) {
         return new OpenHome(url);
     }
 
-    /** Abrir la pÃƒÂ¡gina por defecto */
+    /** Abrir la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina por defecto */
     public static OpenHome now() {
         return new OpenHome("https://www.advantageonlineshopping.com");
     }

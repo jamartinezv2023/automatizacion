@@ -13,6 +13,7 @@ public class LoginStepDefinitions {
 
     @When("he enters valid login credentials")
     public void validLogin() {
+
         theActorInTheSpotlight().attemptsTo(
                 Login.withCredentials("nuevoUser7", "Password1*")
         );
@@ -20,14 +21,18 @@ public class LoginStepDefinitions {
 
     @Then("he should be logged into his account successfully")
     public void verifyLoginSuccess() {
+
         theActorInTheSpotlight().should(
-                seeThat(LoginMessage.displayed(),
-                        containsString("nuevoUser7"))
+                seeThat(
+                        LoginMessage.displayed(),
+                        containsString("Sign out")
+                )
         );
     }
 
     @When("he enters invalid login credentials")
     public void invalidLogin() {
+
         theActorInTheSpotlight().attemptsTo(
                 Login.withCredentials("invalidUser", "wrongPassword")
         );
@@ -35,9 +40,12 @@ public class LoginStepDefinitions {
 
     @Then("he should see an error message indicating invalid username or password")
     public void verifyLoginError() {
+
         theActorInTheSpotlight().should(
-                seeThat(LoginMessage.displayed(),
-                        containsString(""))
+                seeThat(
+                        LoginMessage.displayed(),
+                        containsString("")
+                )
         );
     }
 }

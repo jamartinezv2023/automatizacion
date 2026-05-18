@@ -1,6 +1,5 @@
 package co.edu.udea.calidad.automatizacion.runners;
 
-
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
@@ -9,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/user_registration/UserRegistration.feature",
         glue = "co.edu.udea.calidad.automatizacion.stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        publish = false
 )
 public class UserRegistrationRunner {
 }
-

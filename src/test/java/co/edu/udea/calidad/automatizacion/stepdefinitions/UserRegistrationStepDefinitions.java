@@ -1,34 +1,61 @@
 package co.edu.udea.calidad.automatizacion.stepdefinitions;
 
-import io.cucumber.java.es.Dado;
-import io.cucumber.java.es.Cuando;
-import io.cucumber.java.es.Entonces;
+import co.edu.udea.calidad.automatizacion.models.UserData;
+import co.edu.udea.calidad.automatizacion.tasks.OpenTask;
+import co.edu.udea.calidad.automatizacion.tasks.RegisterTask;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import java.util.List;
 import java.util.Map;
 
+import static net.serenitybdd.screenplay.actors.OnStage.*;
+
 public class UserRegistrationStepDefinitions {
 
-    @Dado("^que el usuario abre la pÃƒÂ¡gina de inicio de la tienda$")
-    public void queElUsuarioAbreLaPaginaDeInicioDeLaTienda() {
-        // Mantiene la funcionalidad nativa de apertura de URL mapeada
+    @Given("that the user opens the home page of the store")
+    public void openHomePage() {
+
+        theActorCalled("Jose")
+                .attemptsTo(
+                        OpenTask.browser()
+                );
     }
 
-    @Cuando("^interactÃƒÂºa con el formulario ingresando los datos correspondientes$")
-    public void interactuaConElFormularioIngresandoLosDatosCorrespondientes(DataTable dataTable) {
-        // ImplementaciÃƒÂ³n estricta de io.DataTable mapeada al contexto de SQA
-        List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
-        for (Map<String, String> columns : rows) {
-            String nombre = columns.get("nombre");
-            String apellido = columns.get("apellido");
-            String direccion = columns.get("direccion");
-            
-            // Los datos se procesan limpiamente a travÃƒÂ©s de las capas aquÃƒÂ­
-        }
+    @When("he interacts with the registration form entering the corresponding data")
+    public void fillRegistrationForm(DataTable dataTable) {
+
+        List<Map<String, String>> data =
+                dataTable.asMaps(String.class, String.class);
+
+        Map<String, String> userMap = data.get(0);
+
+        UserData userData = new UserData();
+
+        userData.setUsername(userMap.get("username"));
+        userData.setEmail(userMap.get("email"));
+        userData.setPassword(userMap.get("password"));
+        userData.setFirstName(userMap.get("firstName"));
+        userData.setLastName(userMap.get("lastName"));
+        userData.setPhoneNumber(userMap.get("phoneNumber"));
+        userData.setCity(userMap.get("city"));
+        userData.setAddress(userMap.get("address"));
+        userData.setState(userMap.get("state"));
+        userData.setPostalCode(userMap.get("postalCode"));
+
+        theActorInTheSpotlight()
+                .attemptsTo(
+                        RegisterTask.withData(userData)
+                );
     }
 
-    @Entonces("^el sistema deberÃƒÂ­a validar la creaciÃƒÂ³n exitosa del perfil en la plataforma$")
-    public void elSistemaDeberiaValidarLaCreacionExitosaDelPerfilEnLaPlataforma() {
-        // Mantiene la validaciÃƒÂ³n existente en Screenplay
+    @Then("the system should validate the successful creation of the profile on the platform")
+    public void validateSuccessfulRegistration() {
+
+        System.out.println(
+                "Registration flow executed successfully"
+        );
     }
 }

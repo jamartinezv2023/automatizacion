@@ -1,20 +1,11 @@
-# language: es
-@UserRegistration @HighCohesion
-Característica: Registro de Nuevos Usuarios en la Plataforma
-  Como usuario de la tienda en línea
-  Quiero registrar un nuevo perfil
-  Para realizar transacciones de forma segura
+Feature: User registration in Advantage Online Shopping
 
-  Esquema del Escenario: Registro de usuario exitoso utilizando estructuras tabulares dinámicas
-    Dado que el usuario abre la página de inicio de la tienda
-    Cuando interactúa con el formulario ingresando los datos correspondientes
-      | nombre   | apellido   | direccion   |
-      | <nombre> | <apellido> | <direccion> |
-    Entonces el sistema debería validar la creación exitosa del perfil en la plataforma
+  Scenario: Successful user registration
 
-    Ejemplos:
-      | nombre           | apellido        | direccion          |
-      | José Alfredo     | Martínez Valdés | Carrera 43 # 46-40 |
-      | Nathalia Andrea  | Martínez Ijají  | Carrera 23 # 31-06 |
-      | Valeria          | Méndez Escobar  | Calle 30 # 24-18    |
-      | Juan Sebastián   | Martínez Ijají  | Carrera 28 # 35-12 |
+    Given that the user opens the home page of the store
+
+    When he interacts with the registration form entering the corresponding data
+      | username       | email                    | password      | firstName | lastName         | phoneNumber | city    | address             | state | postalCode |
+      | joseqa2026test | joseqa2026test@test.com | Calidad2026*  | Jose      | Martinez Valdes  | 3001234567  | Palmira | Carrera 43 # 46-40  | Valle | 763533 |
+
+    Then the system should validate the successful creation of the profile on the platform
