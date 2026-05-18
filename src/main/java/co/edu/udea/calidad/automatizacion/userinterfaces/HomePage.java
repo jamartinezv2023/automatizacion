@@ -1,6 +1,7 @@
 package co.edu.udea.calidad.automatizacion.userinterfaces;
 
 import net.serenitybdd.screenplay.targets.Target;
+
 import org.openqa.selenium.By;
 
 public class HomePage {
@@ -12,6 +13,10 @@ public class HomePage {
     public static final Target USER_ICON =
             Target.the("user icon")
                     .located(By.id("menuUserLink"));
+
+    public static final Target USER_LABEL =
+            Target.the("logged user label")
+                    .located(By.xpath("//span[contains(@class,'hi-user')]"));
 
     public static final Target USERNAME =
             Target.the("username")
@@ -31,7 +36,7 @@ public class HomePage {
 
     public static final Target TABLETS_CATEGORY =
             Target.the("tablets category")
-                    .located(By.xpath("//span[contains(normalize-space(),'TABLETS')] | //div[contains(normalize-space(),'TABLETS')]"));
+                    .located(By.xpath("//span[contains(normalize-space(),'TABLETS')]"));
 
     public static final Target FIRST_PRODUCT =
             Target.the("first product")
@@ -43,9 +48,9 @@ public class HomePage {
 
     public static final Target PLUS_BUTTON =
             Target.the("plus quantity button")
-                    .located(By.xpath("//div[contains(@class,'plus')] | //span[contains(@class,'plus')] | //button[contains(@class,'plus')]"));
+                    .located(By.xpath("//div[contains(@class,'plus')]"));
 
     public static final Target CART_QUANTITY =
             Target.the("cart quantity")
-                    .located(By.xpath("//*[contains(@class,'cart') and contains(@class,'ng-binding')]"));
+                    .located(By.xpath("//*[contains(@class,'cart')]"));
 }

@@ -1,6 +1,7 @@
 package co.edu.udea.calidad.automatizacion.stepdefinitions;
 
 import co.edu.udea.calidad.automatizacion.models.UserData;
+import co.edu.udea.calidad.automatizacion.questions.RegisterResult;
 import co.edu.udea.calidad.automatizacion.tasks.OpenTask;
 import co.edu.udea.calidad.automatizacion.tasks.RegisterTask;
 import io.cucumber.datatable.DataTable;
@@ -11,6 +12,7 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class UserRegistrationStepDefinitions {
@@ -32,10 +34,19 @@ public class UserRegistrationStepDefinitions {
 
         Map<String, String> userMap = data.get(0);
 
+        String uniqueValue =
+                String.valueOf(System.currentTimeMillis());
+
+        String dynamicUsername =
+                userMap.get("username") + uniqueValue;
+
+        String dynamicEmail =
+                uniqueValue + userMap.get("email");
+
         UserData userData = new UserData();
 
-        userData.setUsername(userMap.get("username"));
-        userData.setEmail(userMap.get("email"));
+        userData.setUsername(dynamicUsername);
+        userData.setEmail(dynamicEmail);
         userData.setPassword(userMap.get("password"));
         userData.setFirstName(userMap.get("firstName"));
         userData.setLastName(userMap.get("lastName"));
@@ -54,8 +65,10 @@ public class UserRegistrationStepDefinitions {
     @Then("the system should validate the successful creation of the profile on the platform")
     public void validateSuccessfulRegistration() {
 
-        System.out.println(
-                "Registration flow executed successfully"
+        theActorInTheSpotlight().should(
+                seeThat(
+                        RegisterResult.wasSuccessful()
+                )
         );
     }
 }
