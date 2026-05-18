@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="2" name="Customer Login in Advantage Online Shopping" skipped="0" tests="2" time="4.89" timestamp="2025-11-24 12:36:36"><testcase name="Successful login"><failure message="&#10;Expected: &quot;Logged in successfully&quot;&#10;     but: was &quot;HP Pavilion 15z Touch Laptop&quot;" type="java.lang.AssertionError">
+Expected: "Logged in successfully"
+     but: was "HP Pavilion 15z Touch Laptop"</failure><system-err>
+Expected: "Logged in successfully"
+     but: was "HP Pavilion 15z Touch Laptop"&#13;
+co.edu.udea.calidad.automatizacion.stepdefinitions.LoginStepDefinitions.verifyLoginSuccess(LoginStepDefinitions.java:38)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
+</system-err></testcase><testcase name="Failed login due to incorrect credentials"><failure message="&#10;Expected: &quot;Invalid username or password&quot;&#10;     but: was &quot;&quot;" type="java.lang.AssertionError">
+Expected: "Invalid username or password"
+     but: was ""</failure><system-err>
+Expected: "Invalid username or password"
+     but: was ""&#13;
+co.edu.udea.calidad.automatizacion.stepdefinitions.LoginStepDefinitions.verifyLoginError(LoginStepDefinitions.java:52)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
+</system-err></testcase></testsuite>
