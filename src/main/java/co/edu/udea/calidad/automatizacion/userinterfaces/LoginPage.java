@@ -5,15 +5,19 @@ import org.openqa.selenium.By;
 
 public class LoginPage {
 
-    public static final Target LOGIN_ICON = Target.the("ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­cono de login")
-            .located(By.id("menuUser"));
+    public static final Target USERNAME =
+            Target.the("login username")
+                    .located(By.name("username"));
 
-    public static final Target LOGIN_BUTTON = Target.the("botÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n login")
-            .located(By.id("sign_in_btn"));
+    public static final Target PASSWORD =
+            Target.the("login password")
+                    .located(By.name("password"));
 
-    /** Mensaje de error si las credenciales son incorrectas */
-    public static final Target LOGIN_ERROR = Target.the("mensaje de error de login")
-            .located(By.xpath("//label[@class='invalid']"));
-    public static final Target USERNAME = Target.the("username").located(By.name("username"));
-    public static final Target PASSWORD = Target.the("password").located(By.name("password"));
+    public static final Target LOGIN_BUTTON =
+            Target.the("sign in button")
+                    .located(By.id("sign_in_btn"));
+
+    public static final Target LOGIN_ERROR =
+            Target.the("login error message")
+                    .located(By.xpath("//*[contains(text(),'Incorrect user name or password')]"));
 }
